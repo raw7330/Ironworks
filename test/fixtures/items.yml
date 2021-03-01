@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genre_id: 1
+  name: MyString
+  price: 1
+  image_id: MyString
+  delivery_date: 2021-03-01
+
+two:
+  genre_id: 1
+  name: MyString
+  price: 1
+  image_id: MyString
+  delivery_date: 2021-03-01
