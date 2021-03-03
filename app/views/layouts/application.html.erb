@@ -10,6 +10,32 @@
   </head>
 
   <body>
+    <body>
+    <header class="bg-dark text-white">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <%= link_to "Ironworks", root_path, class: 'navbar-brand text-white' %>
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li id="customer_name">ようこそ、<%= current_user.company_name %>さん！</li>
+              <li class="nav-item"><%= link_to "マイページ", user_path(current_user.id), class: 'nav-link text-white' %></li>
+              <li class="nav-item"><%= link_to "図面一覧", items_path, class: 'nav-link text-white' %></li>
+              <li class="nav-item"><%= link_to "投稿", new_item_path, class: 'nav-link text-white' %></li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %></li>
+
+            <% elsif admin_signed_in? %>
+          　  <li class"nav-item"><%= link_to "会員一覧", admins_usesr_path %></li>
+             <li class="nav-item"><%= link_to "ジャンル一覧", admins_genres_path %></li>
+             <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+
+            <% else %>
+              <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-white' %></li>
+              <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: 'nav-link text-white' %></li>
+            <% end %>
+            </ul>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

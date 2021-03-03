@@ -1,0 +1,30 @@
+<div>新規投稿</div>
+<%= form_with model:@item, url: items_path, method: :post, local:true do |f| %>
+     <div>
+        <p>図面</p>
+        <%= f.attachment_field :image %>
+     </div>
+
+    <div>
+      <p>製品名</p>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <p>価格</p>
+      <%= f.text_field :price %>円
+    </div>
+
+    <div>
+      <p>ジャンル</p>
+      <%= f.collection_select :genre_id, @genres, :id , :name  %>
+    </div>
+
+    <div>
+      <p>納期</p>
+      <%= f.text_field :delivery_date %>
+    </div>
+
+  <%= f.submit '新規投稿', class: "btn btn-success" %>
+
+ <% end %>
