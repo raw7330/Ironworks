@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>製品名</th>
+    <th>ジャンル</th>
+    <th>価格</th>
+    <th>納期</th>
+  </tr>
+
+  <tr>
+    <% @items.each do |item| %>
+    <tb><%= attachment_image_tag(item) %></tb>
+    <tb><%= item.name %></tb>
+    <tb><%= item.genre.name %></tb>
+    <tb><%= item.price %></tb>
+    <tb><%= item.derivery_date %></tb>
+    <% end %>
+  </tr>
+</table>

@@ -1,5 +1,5 @@
 <div>新規投稿</div>
-<%= form_with model:@item, url: items_path, method: :post, local:true do |f| %>
+<%= form_with model:@item, url:items_path, method: :post, local:true do |f| %>
      <div>
         <p>図面</p>
         <%= f.attachment_field :image %>
@@ -12,12 +12,12 @@
 
     <div>
       <p>価格</p>
-      <%= f.text_field :price %>円
+      <%= f.text_field :price %>
     </div>
 
     <div>
       <p>ジャンル</p>
-      <%= f.collection_select :genre_id, @genres, :id , :name  %>
+      <%= f.collection_select :genre_id, @genres, :id, :name %>
     </div>
 
     <div>
