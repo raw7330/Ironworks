@@ -4,6 +4,8 @@
     <th>ジャンル</th>
     <th>価格</th>
     <th>納期</th>
+    <th></th>
+    <th></th>
   </tr>
 
   <tr>
@@ -13,6 +15,14 @@
     <tb><%= item.genre.name %></tb>
     <tb><%= item.price %></tb>
     <tb><%= item.derivery_date %></tb>
+    <tb><% if item.user = current_user %>
+        <%= link_to "編集", edit_item_path(item) %>
+        <% end %>
+    </tb>
+    <tb><% if item.user = current_user %>
+        <%= link_to "削除", item_path(item), method: :delete %>
+        <% end %>
+    </tb>
     <% end %>
   </tr>
 </table>
