@@ -1,0 +1,9 @@
+<div>ユーザー一覧</div>
+<% @users.each do |user| %> 
+<table>
+  <tr>
+    <th><%= user.user_id %></th>
+    <th><%= user.company_name %></th>
+  </tr>
+</table>
+<% end %>
