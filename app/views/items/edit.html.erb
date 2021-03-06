@@ -1,0 +1,31 @@
+<%= form_with model:@item,url:item_path, method: :patch, local: true do |f| %>
+<div>
+  <p>図面</p>
+  <%= f.attachment_field :image %>
+</div>
+
+<div>
+  <p>製品名</p>
+  <%= f.text_field :name %>
+</div>
+
+<div>
+  <p>ジャンル名</p>
+  <%= f.collection_select :genre_id, @genres, :id , :name  %>
+</div>
+
+<div>
+  <p>価格</p>
+  <%= f.text_field :price %>円
+</div>
+
+<div>
+  <p>納期</p>
+  <%= f.date_field :delivery_date %>
+</div>
+
+ <div>
+  <p><%= f.submit '変更を保存', class: "btn btn-success" %></p>
+</div>
+
+<% end %>
