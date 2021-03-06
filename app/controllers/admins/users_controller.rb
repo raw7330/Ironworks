@@ -25,4 +25,7 @@ private
   def user_params
     params.require(:user).permit(:company_name, :company_name_kana, :postal_code, :address, :phone_number, :is_deleted )
   end  
+  def item_params
+    params.require(:item).permit(:genre_id, :name, :price, :image, :delivery_date)
+  end
 end

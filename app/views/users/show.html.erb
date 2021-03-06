@@ -25,3 +25,26 @@
  </tbody>
 </table>
 
+
+<table>
+ <tr>
+    <% @item.each do |item| %>
+    <tb><%= link_to item_path(item.id) do %>
+        <%= attachment_image_tag(item, :image, size: "200x160", fallback: "no_image.jpg") %>
+        <% end %>
+    </tb>
+    <tb><%= item.name %></tb>
+    <tb><%= item.genre.name %></tb>
+    <tb><%= item.price %></tb>
+    <tb><%= item.delivery_date %></tb>
+    <tb><% if item = current_user %>
+        <%= link_to "編集", edit_item_path(item) %>
+        <% end %>
+    </tb>
+    <tb><% if item = current_user %>
+        <%= link_to "削除", item_path(item), method: :delete %>
+        <% end %>
+    </tb>
+    <% end %>
+  </tr>
+</table>
