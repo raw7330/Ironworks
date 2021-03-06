@@ -1,0 +1,31 @@
+<div>ユーザー情報編集</div>
+<%= form_with model:@user,　url:admins_user_path, local: true do |f| %>
+  <div>会社名</div>
+  <%= f.text_field :company_name %>
+
+  <div>カナ</div>
+  <%= f.text_field :company_name_kana %>
+
+  <div>郵便番号</div>
+  <%= f.text_field :postal_code %>
+
+  <div>住所</div>
+  <%= f.text_field :address %>
+
+  <div>電話番号</div>
+  <%= f.text_field :phone_number %>
+
+  <div>メールアドレス</div>
+  <%= f.txt_field :email %>
+
+  <div>ユーザーステータス</div>
+   <%= f.radio_button :is_deleted, true %>
+   <%= f.label :is_deleted,"退会済" %>
+   <%= f.radio_button :is_deleted, false %>
+   <%= f.label :is_deleted, "有効" %>
+
+<div>
+  <%= f.submit "編集内容を保存" %>
+</div>
+
+<% end %>

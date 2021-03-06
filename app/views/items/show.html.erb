@@ -1,0 +1,9 @@
+<div><%= link_to user_path(@user) do %>
+     <%= @user.company_name %>
+     <% end %>
+</div>
+<div><%= attachment_image_tag(@item, :image, size: "200x160", fallback: "no_image.jpg") %></div>
+<div><%= @item.name %></div>
+<div><%= @item.genre.name %></div>
+<div><%= @item.price %></div>
+<div><%= @item.delivery_date %></div>
