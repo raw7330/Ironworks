@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   get 'quit' => 'users#quit'
   patch 'out' => 'users#out'
-  resources :items, only: [:index, :show, :edit, :update, :destroy, :new, :create]
+  resources :items, only: [:index, :show, :edit, :update, :destroy, :new, :create] do
   resources :comments, only: [:create, :destroy]
-  resources :bookmarks, only: [:create, :destroy]
+  resources :bookmarks, only: [:index, :create, :destroy]
+  end
 
   namespace :admins do
   resources :users, only: [:index, :show, :edit, :update]
