@@ -1,10 +1,23 @@
-<div><%= link_to user_path(@user) do %>
+<div class="container">
+<div class="raw">
+ <div class="col-6 name-drawing">
+  <div class="name">
+     <%= link_to user_path(@user) do %>
      <%= @user.company_name %>
      <% end %>
+  </div>
+  <div class="n-drawing">
+     <%= attachment_image_tag(@item, :image, size: "200x160", fallback: "no_image.jpg") %></div>
+  </div>
+ </div>
+ 
+ <div class="col-6 detail">
+  <div class="item-name"><%= @item.name %></div>
+  <div class="item-genre"><%= @item.genre.name %></div>
+  <div class="item-price"><%= @item.price %>円</div>
+  <div class="item-delivery"><%= @item.delivery_date %></div>
+  <div class="bookmark"><%= render 'bookmarks/bookmark',item:@item %></div>
+ </div>
+
 </div>
-<div><%= attachment_image_tag(@item, :image, size: "200x160", fallback: "no_image.jpg") %></div>
-<div><%= @item.name %></div>
-<div><%= @item.genre.name %></div>
-<div><%= @item.price %></div>
-<div><%= @item.delivery_date %></div>
-<div><%= render 'bookmarks/bookmark',item:@item %></div>
+</div>

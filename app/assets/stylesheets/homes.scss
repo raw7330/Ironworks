@@ -1,3 +1,11 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.top-introduction {
+  background-image: image_url('gettyimages-1252708494-640x640.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  margin-top: 100px;
+  margin-bottom: 25px;
+}

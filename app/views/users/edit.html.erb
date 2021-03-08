@@ -1,4 +1,7 @@
-<div>会員情報編集</div>
+<div class="container">
+<h1>会員情報編集</h1>
+
+<div class="row">
 <%= form_with model:current_user,　url:user_path, local: true do |f| %>
   <div>会社名</div>
   <%= f.text_field :company_name %>
@@ -22,3 +25,6 @@
   <%= link_to "退会する", quit_path %>
 </div>
 <% end %>
+
+</div>
+</div>

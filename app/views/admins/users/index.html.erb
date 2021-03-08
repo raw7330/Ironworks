@@ -1,9 +1,16 @@
-<div>ユーザー一覧</div>
+<div class="container">
+<h1>ユーザー一覧</h1>
 <% @users.each do |user| %> 
 <table>
   <tr>
-    <th><%= user.user_id %></th>
-    <th><%= user.company_name %></th>
+    <th><%= user.id %></th>
+    <th>
+      <%= link_to admins_user_path(user.id) do %>
+      <%= user.company_name %>
+      <% end %>
+    </th>
   </tr>
 </table>
 <% end %>
+
+</div>

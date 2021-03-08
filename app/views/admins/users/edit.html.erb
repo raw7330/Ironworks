@@ -1,4 +1,7 @@
-<div>ユーザー情報編集</div>
+<div class="container">
+
+
+<h1>ユーザー情報編集</h1>
 <%= form_with model:@user,　url:admins_user_path, local: true do |f| %>
   <div>会社名</div>
   <%= f.text_field :company_name %>
@@ -16,7 +19,7 @@
   <%= f.text_field :phone_number %>
 
   <div>メールアドレス</div>
-  <%= f.txt_field :email %>
+  <%= f.text_field :email %>
 
   <div>ユーザーステータス</div>
    <%= f.radio_button :is_deleted, true %>
@@ -29,3 +32,5 @@
 </div>
 
 <% end %>
+
+</div>

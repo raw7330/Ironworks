@@ -1,3 +1,17 @@
+<div class="container">
+<div class="row">
+
 <% @bookmarks.each do |bookmark| %>
- <%= bookmark.name %>
+
+<%= link_to item_path(bookmark.item.id) do %>
+<%= attachment_image_tag(bookmark.item, :image, size: "200x160", fallback: "no_image.jpg") %>
 <% end %>
+<%= bookmark.item.name %>
+<%= bookmark.item.genre.name %>
+<%= bookmark.item.price %>円
+<%= bookmark.item.delivery_date %>
+
+<% end %>
+
+</div>
+</div>

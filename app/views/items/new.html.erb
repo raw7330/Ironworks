@@ -1,4 +1,6 @@
-<div>新規投稿</div>
+<div class="container">
+<h1>新規投稿</h1>
+<div class="row">
 <%= form_with model:@item, url:items_path, local:true, method: :post do |f| %>
     <div>
       <p>図面</p>
@@ -28,3 +30,5 @@
   <%= f.submit '新規投稿', class: "btn btn-success" %>
 
  <% end %>
+ </
+ </div>

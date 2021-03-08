@@ -1,17 +1,31 @@
+<div class="container">
+<h1>ジャンル作成</h1>
 
-<div>
+<div class="row">
   <%= form_with model:@genre, url:admins_genres_path, method: :post, local:true do |f| %>
-    <div class="form-group row">
-      <p class="col-md-3 pt-1 mb-0">ジャンル名</p>
-      <p><%= f.text_field :name %></p>
-      <p><%= f.submit '新規登録', class: "btn btn-success" %></p>
+    <div class="form-group">
+      <div>ジャンル名</div>
+      <div><%= f.text_field :name %></div>
+      <div><%= f.submit '新規登録', class: "btn btn-success" %></div>
+    </div>
   <% end %>
 </div>
 
-<div>
+
+<div class="row">
+ <table border="genres">
  <% @genres.each do |genre| %>
-  <%= genre.name %>
-  <%= link_to "編集する",  edit_admins_genre_path(genre), class: "btn btn-success" %>
+ <thead>
+  <tr>
+    <th>
+      <%= genre.name %>
+      <%= link_to "編集する",  edit_admins_genre_path(genre), class: "btn btn-success" %>
+    </th>
+  </tr>
+ </thed>
  <% end %>
+ </table>
 </div>
   <%= paginate(@genres) %>
+
+</div>

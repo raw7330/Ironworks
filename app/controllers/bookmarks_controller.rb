@@ -2,8 +2,8 @@ class BookmarksController < ApplicationController
   # before_action :set_item
 
   def index
-   @item = Item.find(params[:item_id])
-   @bookmarks = Bookmark.where(item_id: @item).all
+   @user = current_user
+   @bookmarks = @user.bookmarks
   end
 
   def create
@@ -23,7 +23,8 @@ class BookmarksController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:genre_id, :name, :price, :image, :delivery_date)
-  end  # def set_item
+  end
+  # def set_item
   #   @item = Item.find(params[:item_id])
   # end
 end

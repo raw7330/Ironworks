@@ -1,4 +1,6 @@
-<div>ユーザー詳細</div>
+<div class="container">
+
+<h1>ユーザー詳細</h1>
 
 <table>
  <tbody>
@@ -26,7 +28,8 @@
     <th>ユーザーステータス</th>
     <th><%= @user.is_deleted %></th>
   </tr>
-  <th><%= link_to "編集", admins_user_path(@user) %></th>
+  <th><%= link_to "編集", edit_admins_user_path(@user) %></th>
  </tbody>
 </table>
 
+</div>
