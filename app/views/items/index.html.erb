@@ -1,6 +1,6 @@
 <div class="container">
   <div><%= search_form_for @q do |f| %>
-        <%= f.label :name, "Keyword" %>
+        <%= f.label :name, "製品名検索" %>
         <%= f.search_field :name_cont %>
         <%= f.submit"検索" %>
        <% end %>
@@ -42,7 +42,7 @@
       </tbody>
       </table>
     </div>
-    
+
   </div>
   <% end %>
 </div>

@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @q =Item.ransack(params[:q])
-    @qitems = @q.result(distinct: true)
+    @items = @q.result(distinct: true) if params[:q] # 後置
   end
 
   def show
