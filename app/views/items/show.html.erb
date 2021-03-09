@@ -19,5 +19,24 @@
   <div class="bookmark"><%= render 'bookmarks/bookmark',item:@item %></div>
  </div>
 
+
+<div class="raw">
+<h2>コメント</h2>
+ <div class="comments">
+  <%= @comments.each do |comment| %>
+  <div><%= comment.user.company_name %></div>
+  <div><%= comment.comment %></div>
+  <div><%= link_to "削除", item_comment_path(@item, comment), method: :delete %></div>
+  <% end %>
+ </div>
+ 
+ <div class="row">
+ <div>
+   <%= form_with(model:[@item, @comment], local: true) do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.submit "送信する" %>
+   <% end %>
+ </div> 
 </div>
+
 </div>

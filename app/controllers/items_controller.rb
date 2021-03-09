@@ -2,11 +2,15 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @q =Item.ransack(params[:q])
+    @qitems = @q.result(distinct: true)
   end
 
   def show
     @item = Item.find(params[:id])
     @user = User.find(@item.user_id)
+    @comment = Comment.new
+    @comments = @item.comments
   end
 
   def edit
@@ -46,6 +50,7 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+  
 
   private
   def item_params
