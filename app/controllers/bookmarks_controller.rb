@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
 
   def index
    @user = current_user
-   @bookmarks = @user.bookmarks
+   @bookmarks = @user.bookmarks.page(params[:page]).per(10)
   end
 
   def create

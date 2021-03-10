@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:index, :create, :destroy]
   end
 
-  namespace :admins do
+  namespace :admin do
   resources :users, only: [:index, :show, :edit, :update]
   resources :genres, only: [:index, :create, :edit, :update]
   end

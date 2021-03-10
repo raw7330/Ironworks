@@ -2,7 +2,7 @@
 <h1>ジャンル作成</h1>
 
 <div class="row">
-  <%= form_with model:@genre, url:admins_genres_path, method: :post, local:true do |f| %>
+  <%= form_with model:@genre, url:admin_genres_path, method: :post, local:true do |f| %>
     <div class="form-group">
       <div>ジャンル名</div>
       <div><%= f.text_field :name %></div>
@@ -19,7 +19,7 @@
   <tr>
     <th>
       <%= genre.name %>
-      <%= link_to "編集する",  edit_admins_genre_path(genre), class: "btn btn-success" %>
+      <%= link_to "編集する",  edit_admin_genre_path(genre), class: "btn btn-success" %>
     </th>
   </tr>
  </thed>

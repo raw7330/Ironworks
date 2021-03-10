@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
+   before_action :authenticate_user!
+   
 
   def index
-    @items = Item.all
+    @items = Item.all.page(params[:page]).per(10)
     @q =Item.ransack(params[:q])
     @items = @q.result(distinct: true) if params[:q] # 後置
   end
@@ -21,7 +23,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to items_path  
+      redirect_to items_path
     else
       render :edit
     end
@@ -50,7 +52,7 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-  
+
 
   private
   def item_params

@@ -5,12 +5,12 @@
   <tr>
     <th><%= user.id %></th>
     <th>
-      <%= link_to admins_user_path(user.id) do %>
+      <%= link_to admin_user_path(user.id) do %>
       <%= user.company_name %>
       <% end %>
     </th>
   </tr>
 </table>
 <% end %>
-
+<%= paginate (@users) %>
 </div>
