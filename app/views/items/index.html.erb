@@ -5,6 +5,7 @@
         <%= f.submit"検索" %>
        <% end %>
   </div>
+  <div><%=flash[:notice] %></div>
   <% @items.each do |item| %>
   <div class="row">
     <div class="col-4">
@@ -30,11 +31,11 @@
         <tb><%= item.genre.name %></tb>
         <tb><%= item.price %>円</tb>
         <tb><%= item.delivery_date %></tb>
-        <tb><% if item.user = current_user %>
+        <tb><% if item.user == current_user %>
             <%= link_to "編集", edit_item_path(item) %>
             <% end %>
         </tb>
-        <tb><% if item.user = current_user %>
+        <tb><% if item.user == current_user %>
             <%= link_to "削除", item_path(item), method: :delete %>
             <% end %>
         </tb>
@@ -42,8 +43,8 @@
       </tbody>
       </table>
     </div>
-
+   <%= paginate (@items) %>
   </div>
   <% end %>
-  <%= paginate (@items) %>
+  
 </div>

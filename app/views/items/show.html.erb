@@ -31,6 +31,8 @@
  </div>
  
  <div class="row">
+ <div><%=flash[:notice] %></div>
+ <div><%=flash[:alert] %></div>
  <div>
    <%= form_with(model:[@item, @comment], local: true) do |f| %>
     <%= f.text_area :comment %>

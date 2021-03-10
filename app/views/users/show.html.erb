@@ -1,6 +1,11 @@
 <div class="container">
+<div><%=flash[:notice] %></div>
     <div class="row">
+    <% if @user == current_user %>
     <h1>マイページ</h1>
+    <% else %>
+    <h1>ユーザー詳細</h1>
+    <% end %>
     </div>
 
     <div class="row">
@@ -36,7 +41,11 @@
 
     <div class="row">
      <div class="col-5 text-right">
-     <font size="4"><%= link_to "ブックマーク一覧", item_bookmarks_path(@item) %></font>
+     <font size="4">
+       <% if @user == current_user %>
+       <%= link_to "ブックマーク一覧", item_bookmarks_path(@item) %>
+       <% end %>
+      </font>
      </div>
     </div>
 </div>
@@ -57,12 +66,12 @@
         <div><%= item.genre.name %></div>
         <div><%= item.price %>円</div>
         <div><%= item.delivery_date %></div>
-     
-        <div><% if item = current_user %>
+
+        <div><% if item.user == current_user %>
             <%= link_to "編集", edit_item_path(item) %>
             <% end %>
         </div>
-        <div><% if item = current_user %>
+        <div><% if item.user == current_user %>
             <%= link_to "削除", item_path(item), method: :delete %>
             <% end %>
         </div>

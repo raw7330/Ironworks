@@ -6,8 +6,10 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     
     if @comment.save
+      flash[:notice] = 'コメント完了しました'
       redirect_back(fallback_location: root_path)
     else
+      flash[:alert] = 'コメント失敗しました'
       redirect_back(fallback_location: root_path)
     end
   end

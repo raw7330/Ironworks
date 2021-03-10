@@ -13,7 +13,7 @@ class Item < ApplicationRecord
     validates :genre_id
     validates :name
     validates :price
-    validates :image_id
+    validates :image
     validates :delivery_date
   end
 

@@ -11,8 +11,10 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
+      flash[:notice] = '編集完了しました'
       redirect_to user_params
     else
+      flash[:alert] = '編集失敗しました'
       render :edit
     end
   end
