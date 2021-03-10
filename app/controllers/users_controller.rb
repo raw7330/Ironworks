@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-# before_action :authenticate_user!
+before_action :authenticate_user!
 
   def show
     @user = User.find(params[:id])
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def out
-    current_user.update(is_deleted: true)
+    current_user.destroy #paranoidでdestroyが上書きされる
     reset_session
     redirect_to root_path
   end

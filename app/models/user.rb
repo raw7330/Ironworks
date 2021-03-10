@@ -3,7 +3,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :items
+  has_many :items, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
 
@@ -13,7 +13,7 @@ class User < ApplicationRecord
    validates :postal_code
    validates :address
    validates :phone_number
-   validates :email
+   validates :email, uniqueness: true
    validates :encrypted_password
   end
 
