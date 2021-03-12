@@ -72,3 +72,8 @@ gem "refile-mini_magick"
 
 gem "ransack"
 gem "paranoia"
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
