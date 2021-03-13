@@ -1,0 +1,20 @@
+<div class="raw">
+<h2>コメント</h2>
+ <div class="comments">
+  <%= comments.each do |comment| %>
+  <div><%= comment.user.company_name %></div>
+  <div><%= comment.comment %></div>
+  <div><%= link_to "削除", item_comment_path(item, comment), method: :delete, remote: true %></div>
+  <% end %>
+ </div>
+
+ <div class="row">
+ <div><%=flash[:notice] %></div>
+ <div><%=flash[:alert] %></div>
+ <div>
+   <%= form_with(model:[item, comment], remote: true) do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.submit "送信する" %>
+   <% end %>
+ </div>
+</div>

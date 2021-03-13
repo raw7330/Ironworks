@@ -10,35 +10,16 @@
      <%= attachment_image_tag(@item, :image, size: "200x160", fallback: "no_image.jpg") %></div>
   </div>
  </div>
- 
+
  <div class="col-6 detail">
   <div class="item-name"><%= @item.name %></div>
   <div class="item-genre"><%= @item.genre.name %></div>
   <div class="item-price"><%= @item.price %>円</div>
   <div class="item-delivery"><%= @item.delivery_date %></div>
-  <div class="bookmark"><%= render 'bookmarks/bookmark',item:@item %></div>
+  <div id="bookmarks_buttons_<%= @item.id %>"><%= render 'bookmarks/bookmark',item:@item %></div>
  </div>
 
+ <div id="comments_buttons_<%= @item.id %>"><%= render 'comments/comment',item:@item,comments:@comments,comment:@comment %></div>
 
-<div class="raw">
-<h2>コメント</h2>
- <div class="comments">
-  <%= @comments.each do |comment| %>
-  <div><%= comment.user.company_name %></div>
-  <div><%= comment.comment %></div>
-  <div><%= link_to "削除", item_comment_path(@item, comment), method: :delete %></div>
-  <% end %>
- </div>
- 
- <div class="row">
- <div><%=flash[:notice] %></div>
- <div><%=flash[:alert] %></div>
- <div>
-   <%= form_with(model:[@item, @comment], local: true) do |f| %>
-    <%= f.text_area :comment %>
-    <%= f.submit "送信する" %>
-   <% end %>
- </div> 
-</div>
 
 </div>
