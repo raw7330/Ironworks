@@ -1,4 +1,5 @@
 <div class="container">
+<!--<div class="d-inline-block">-->
 <div><%=flash[:notice] %></div>
     <div class="row">
     <% if @user == current_user %>
@@ -9,7 +10,7 @@
     </div>
 
     <div class="row">
-    <table>
+    <table border="2">
      <tbody>
       <tr>
         <th>会社名</th>
@@ -27,26 +28,29 @@
         <th>住所</th>
         <th><%= @user.address %></th>
       </tr>
+     </tbody>
+    </table>
+    </div>
+    
+    <div class="row">
+    <table>
+     <tbody>
       <tr>
-        <th></th>
-      　<th class="text-right">
+      　<th class="text-left">
       　     <% if @user == current_user %>
       　     <%= link_to "編集", edit_user_path(@user), class: "btn btn-success px-4" %>
       　     <% end %>
       　</th>
+      　<th class="text-right">
+      　  <font size="4">
+         <% if @user == current_user %>
+         <%= link_to "ブックマーク一覧", item_bookmarks_path(@item), class: "btn btn-success px-4" %>
+         <% end %>
+         </font>
+        </th>
       </tr>
      </tbody>
     </table>
-    </div>
-
-    <div class="row">
-     <div class="col-5 text-right">
-     <font size="4">
-       <% if @user == current_user %>
-       <%= link_to "ブックマーク一覧", item_bookmarks_path(@item) %>
-       <% end %>
-      </font>
-     </div>
     </div>
 </div>
 
@@ -55,7 +59,7 @@
 <h2>投稿一覧</h2>
 <div class="row">
     <% @item.each do |item| %>
-    <div class="drawing-box col-7">
+    <div class="col-md-4 drawing-box">
        <div class="drawing">
         <div>
             <%= link_to item_path(item.id) do %>
@@ -68,15 +72,16 @@
         <div><%= item.delivery_date %></div>
 
         <div><% if item.user == current_user %>
-            <%= link_to "編集", edit_item_path(item) %>
-            <% end %>
-        </div>
-        <div><% if item.user == current_user %>
-            <%= link_to "削除", item_path(item), method: :delete %>
-            <% end %>
+             <%= link_to "編集", edit_item_path(item) %>/
+             <% end %>
+        
+             <% if item.user == current_user %>
+             <%= link_to "削除", item_path(item), method: :delete %>
+             <% end %>
         </div>
        </div>
     </div>
     <% end %>
 </div>
 </div>
+
