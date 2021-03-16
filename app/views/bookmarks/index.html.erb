@@ -2,15 +2,17 @@
 <div class="row">
 
 <% @bookmarks.each do |bookmark| %>
-
-<%= link_to item_path(bookmark.item.id) do %>
-<%= attachment_image_tag(bookmark.item, :image, size: "200x160", fallback: "no_image.jpg") %>
-<% end %>
-<%= bookmark.item.name %>
-<%= bookmark.item.genre.name %>
-<%= bookmark.item.price %>円
-<%= bookmark.item.delivery_date %>
-
+<div class="box3">
+  <div>
+  <%= link_to item_path(bookmark.item.id) do %>
+  <%= attachment_image_tag(bookmark.item, :image, size: "360x300", fallback: "no_image.jpg") %>
+  <% end %>
+  </div>
+  <div>製品名：<%= bookmark.item.name %></div>
+  <div>ジャンル名：<%= bookmark.item.genre.name %></div>
+  <div>価格：<%= bookmark.item.price %>円</div>
+  <div>納期:<%= bookmark.item.delivery_date %></div>
+</div>
 <% end %>
 
 </div>

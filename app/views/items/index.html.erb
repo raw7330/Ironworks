@@ -6,45 +6,45 @@
        <% end %>
   </div>
   <div><%=flash[:notice] %></div>
-  <% @items.each do |item| %>
+
   <div class="row">
-    <div class="col-4">
+  <% @items.each do |item| %>
+    <div>
     <%= link_to item_path(item.id) do %>
-    <%= attachment_image_tag(item, :image, size: "200x160", fallback: "no_image.jpg") %>
+    <%= attachment_image_tag(item, :image, size: "350x280", fallback: "no_image.jpg") %>
     <% end %>
     </div>
     <div class="col-6">
-      <table class="description">
-      <thead>
-      <tr>
-        <th>製品名</th>
-        <th>ジャンル</th>
-        <th>価格</th>
-        <th>納期</th>
-        <th></th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <tb><%= item.name %></tb>
-        <tb><%= item.genre.name %></tb>
-        <tb><%= item.price %>円</tb>
-        <tb><%= item.delivery_date %></tb>
-        <tb><% if item.user == current_user %>
-            <%= link_to "編集", edit_item_path(item) %>
-            <% end %>
-        </tb>
-        <tb><% if item.user == current_user %>
-            <%= link_to "削除", item_path(item), method: :delete %>
-            <% end %>
-        </tb>
-      </tr>
-      </tbody>
+      <table border="1">
+       <thead>
+         <tr>
+          <th>製品名</th>
+          <th>ジャンル</th>
+          <th>価格</th>
+          <th>納期</th>
+          <th></th>
+          <th></th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+          <td><%= item.name %></td>
+          <td><%= item.genre.name %></td>
+          <td><%= item.price %>円</td>
+          <td><%= item.delivery_date %></td>
+          <td><% if item.user == current_user %>
+              <%= link_to "編集", edit_item_path(item) %>
+              <% end %>
+          </td>
+          <td><% if item.user == current_user %>
+              <%= link_to "削除", item_path(item), method: :delete %>
+              <% end %>
+          </td>
+         </tr>
+       </tbody>
       </table>
     </div>
    <%= paginate (@items) %>
-  </div>
   <% end %>
-  
+  </div>
 </div>

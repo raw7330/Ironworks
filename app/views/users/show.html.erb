@@ -31,7 +31,7 @@
      </tbody>
     </table>
     </div>
-    
+
     <div class="row">
     <table>
      <tbody>
@@ -59,11 +59,11 @@
 <h2>投稿一覧</h2>
 <div class="row">
     <% @item.each do |item| %>
-    <div class="col-md-4 drawing-box">
+    <div class="drawing-box">
        <div class="drawing">
-        <div>
+        <div class="drawing-image">
             <%= link_to item_path(item.id) do %>
-            <%= attachment_image_tag(item, :image, size: "200x160", fallback: "no_image.jpg") %>
+            <%= attachment_image_tag(item, :image, size: "360x300", fallback: "no_image.jpg") %>
             <% end %>
         </div>
         <div><%= item.name %></div>
@@ -74,7 +74,7 @@
         <div><% if item.user == current_user %>
              <%= link_to "編集", edit_item_path(item) %>/
              <% end %>
-        
+
              <% if item.user == current_user %>
              <%= link_to "削除", item_path(item), method: :delete %>
              <% end %>
