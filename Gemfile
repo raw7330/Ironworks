@@ -77,3 +77,6 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem 'rubocop', '~> 0.72.0'
+gem 'rubocop-rails', '~> 2.3'

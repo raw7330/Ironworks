@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row-md-8 top-introduction">
+  <div class="row top-introduction">
     <div class="col-md-8 offset-md-4">
       <div class="top_text text-white">
       <br>
@@ -10,6 +10,7 @@
       </div>
     </div>
   </div>
+  
   <div class="row">
   <div class="row justify-content-center">
     <% if user_signed_in? %>
@@ -18,12 +19,14 @@
       </div>
     <% else %>
       <div>
-        <%= link_to "新規登録", new_user_registration_path %>
+        <%= link_to "新規登録", new_user_registration_path %>|
       </div>
       <div>
         <%= link_to "ログイン", new_user_session_path %>
       </div>
     <% end %>
   </div>
+  </div>
   <%= yield %>
+  
 </div>
