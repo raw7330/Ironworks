@@ -2,9 +2,11 @@
 <h2>コメント</h2>
  <div class="comments">
   <% comments.each do |comment| %>
-  <div><%= comment.user.company_name %></div>
-  <div><%= comment.comment %></div>
-  <div><%= link_to "削除", item_comment_path(item, comment), method: :delete, remote: true %></div>
+  <div class="row">
+  <div class="col-12"><%= comment.user.company_name %></div>
+  <div class="col-5"><%= comment.comment %></div>
+  <div class="col-3"><%= link_to "削除", item_comment_path(item, comment), method: :delete, remote: true %></div>
+  </div>
   <% end %>
  </div>
 
