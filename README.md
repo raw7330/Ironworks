@@ -39,7 +39,6 @@ https://docs.google.com/spreadsheets/d/1MGK6vxKRb607-P2o6-cRnHX6kNx8gnS231KWuXvu
 
 
 ## チャレンジ要素一覧
-
 https://docs.google.com/spreadsheets/d/1x76uAYuUfGlyS9l_8P4T2kmramFz0ZgJCL-KGic3nn8/edit#gid=0
 
 
