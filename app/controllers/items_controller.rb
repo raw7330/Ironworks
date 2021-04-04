@@ -50,12 +50,20 @@ class ItemsController < ApplicationController
     @genres = Genre.all
     # binding.pry
     if @item.save
+
+     tags = Vision.get_image_data(@item.image)#APIタグ作成
+     tags.each do |tag|
+       @item.tags.create(name: tag)
+     end
+
       flash[:notice] = '投稿完了しました'
       redirect_to items_path
     else
       flash[:alert] = '投稿失敗しました'
       render :new
     end
+
+
   end
 
 

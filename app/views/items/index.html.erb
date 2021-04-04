@@ -42,6 +42,11 @@
           </td>
          </tr>
        </tbody>
+       <div>
+        <% item.tags.each do |tag| %>
+         <span class="label"><%= tag.name %></span>
+        <% end %>
+       </div>
       </table>
     </div>
    <%= paginate (@items) %>

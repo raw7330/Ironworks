@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   attachment :image
+  has_many :tags, dependent: :destroy
 
   def bookmarked_by?(user)
     bookmarks.where(user_id: user.id).exists?
